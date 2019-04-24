@@ -2,7 +2,6 @@ class Vehicle
   def initialize
     @speed = 0
     @direction = 'north'
-
   end
 
   def brake
@@ -19,11 +18,11 @@ class Vehicle
 end
 
 class Car < Vehicle
-  def initialize
-    super
-    @make = "Nissan"
-    @model = "Rogue"
-    @fuel = 25
+  def initialize(input)
+    super()
+    @make = input[:make]
+    @model = input[:model]
+    @fuel = input[:fuel]
   end
 
   def honk_horn
@@ -44,7 +43,11 @@ class Bike < Vehicle
   end
 end
 
-car = Car.new
+car = Car.new(
+              model: "Rogue",
+              make: "Nissan",
+              fuel: 25
+              )
 bike = Bike.new
 
 p car

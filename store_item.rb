@@ -10,7 +10,7 @@
 
 class Item
 
-  attr_reader :item, :color, :price #replaces lines 22 thru 44
+  attr_reader :item, :color, :price, :shelf_life#replaces lines 22 thru 44
   attr_writer :price
 
   def initialize(input)
@@ -49,6 +49,13 @@ class Item
 
 end
 
+class Food < Item
+  def initialize(input)
+    super
+    @shelf_life = input[:shelf_life]
+  end
+end
+
 # item2 = Item.new("Laptop", "Silver", 2000)
 # item3 = Item.new("Xbox", "White", 350)
 
@@ -70,6 +77,19 @@ item3 = Item.new(
                 price: 350
                 )
 
+item4 = Food.new(
+                item: "Pizza",
+                color: "Yellow",
+                price: 15,
+                shelf_life: 0
+                )
+
 item1.print_info
 item2.print_info
 item3.print_info
+item4.print_info
+
+p item1
+p item2
+p item3
+p item4
